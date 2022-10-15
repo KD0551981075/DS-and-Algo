@@ -2,6 +2,8 @@
 
 Here is the mind map which should probably cover all the topics of data structures and algorithm
 
+Resources Following DSA450
+
 Link for the MindMap, the below image is static, you can find the udpated one in this link : https://miro.com/app/board/uXjVPOe-9dg=/
 
 

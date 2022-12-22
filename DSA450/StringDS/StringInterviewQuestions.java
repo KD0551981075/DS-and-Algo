@@ -75,8 +75,9 @@ public class StringInterviewQuestions {
         duplicate.entrySet().stream().filter(each -> each.getValue() > 1).map(each -> each.getKey()).forEach(System.out::print);
     }
 
-    /*using set functionality
+    /*
     *  2>How do you print duplicate characters from a string? (solution)
+    * using set functionality
     */
     public static void printDuplicateMethod2(String string) {
         char[] charArray = string.toCharArray();

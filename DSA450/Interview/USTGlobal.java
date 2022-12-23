@@ -4,7 +4,7 @@ package Interview;
 
 import java.util.Arrays;
 
-public class SampleJavaClass {
+public class USTGlobal {
 
     public static void main(String[] args) {
         char[] s1 = "army".toCharArray();

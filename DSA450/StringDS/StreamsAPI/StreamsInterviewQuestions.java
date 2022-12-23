@@ -18,7 +18,16 @@ public class StreamsInterviewQuestions {
 
     numbersList = Arrays.asList(10, 15, 8, 49, 25, 98, 98, 32, 15);
     //Q3 How to find duplicate elements in a given integers list in java using Stream functions?
-    printDuplicateElements(numbersList);
+    //printDuplicateElements(numbersList);
+
+    for(int i=0; i<numbersList.size();i++)
+    {
+      if(numbersList.get(i)%5==0)
+        System.out.println(numbersList.get(i));
+    }
+
+    numbersList.stream().filter(e->e%5==0).forEach(System.out::println);
+
 
 
   }

@@ -1,15 +1,13 @@
 package StringDS;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class StringInterviewQuestions {
     /*
-        How can a given string be reversed using recursion? (solution)
-        How do you check if a string contains only digits? (solution)
-        How do you find duplicate characters in a given string? (solution)
-        How do you count a number of vowels and consonants in a given string? (solution)
+
+
         How do you count the occurrence of a given character in a string? (solution)
-        How do you print the first non-repeated character from a string? (solution)
         How do you convert a given String into int like the atoi()? (solution)
         How do you reverse words in a given sentence without using any library method? (solution)
         How do you check if two strings are a rotation of each other? (solution)
@@ -24,17 +22,8 @@ public class StringInterviewQuestions {
          */
     public static void main(String args[]) {
 
-        String givenString = "cat";
-        String givenString2 = "tac";
-
-        //System.out.println(reverseString(givenString));
-
-        /* printDuplicateMethod1(givenString);
-        printDuplicateMethod2(givenString);*/
-
-        //System.out.println(isAnagrams(givenString,givenString2));
-
-        //permutation("datta", "");
+        //firstNonRepeatedChar("narasimha");
+        printAllSubStrings();
 
     }
 
@@ -53,6 +42,18 @@ public class StringInterviewQuestions {
             j--;
         }
         return String.valueOf(charArray);
+    }
+
+    /*
+    How can a given string be reversed using recursion? (solution)
+    UsingRecursion
+    */
+    String reverseString1(String inputString){
+        //hello
+        if(inputString.length() ==1)
+            return inputString;
+
+        return reverseString1(inputString.substring(1))+inputString.charAt(0);
     }
 
     /*
@@ -108,16 +109,69 @@ public class StringInterviewQuestions {
     }
 
     //4> How do you find all the permutations of a string? (solution)
-    private static void permutation(String givenString, String output) {
+    private static void permutation(String givenString, String outputString) {
         //break condition
         if (givenString.length() == 0) {
-            System.out.println(output);
+            System.out.println(outputString);
             return;
         }
         for (int i = 0; i < givenString.length(); i++) {
             char currentChar = givenString.charAt(i);
             String left = givenString.substring(0, i);
             String right = givenString.substring(i + 1);
-            permutation(left + right, output + currentChar);
+            permutation(left + right, outputString + currentChar);
         }}
+
+    //5> How do you check if a string contains only digits? (solution)
+    static boolean checkOnlyDigits(String s){
+
+        return s.matches("^[0-9]+$") ? true : false;
+    }
+
+    //6>How do you count a number of vowels and consonants in a given string? (solution)
+    static void vowelsAndConsonants(String inputString){
+        int vowels = 0, consonants = 0;
+
+        for(int i=0;i<inputString.length();i++){
+            char currnt = inputString.charAt(i);
+            if( currnt == 'a' || currnt == 'e' ||currnt == 'i' ||currnt == 'o' ||currnt == 'u' )
+                vowels++;
+            else
+                consonants++;
+        }
+
+        System.out.println("volwels : "+vowels+" consonants : "+consonants);
+    }
+
+    //7> How do you print the first non-repeated character from a string? (solution)
+    public static void firstNonRepeatedChar(String string) {
+
+        Map<Character, Integer> duplicate = new TreeMap<>();
+
+        for (int i = 0; i < string.length(); i++) {
+            if (!duplicate.containsKey(string.charAt(i))) {
+                duplicate.put(string.charAt(i), 1);
+            } else {
+                Integer values = duplicate.get(string.charAt(i));
+                duplicate.put(string.charAt(i), values + 1);
+            }
+        }
+
+       for(int i=0;i<string.length();i++){
+           if(duplicate.get(string.charAt(i)) ==1){
+               System.out.println(string.charAt(i));
+               break;
+           }
+       }
+
+    }
+
+    public static void printAllSubStrings(){
+        String str = "123";
+        int len = str.length();
+        for (int i = 0; i < len; i++) {
+            for (int j = i+1; j <= len; j++) {
+                System.out.println(str.substring(i,j));
+    }}}
+
 }
